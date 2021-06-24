@@ -17,12 +17,12 @@ response = requests.get("https://api.openweathermap.org/data/2.5/onecall", param
 response.raise_for_status()
 pprint.pprint(response.json())
 
-next_48 = response.json()["hourly"]
+weather_data = response.json()["hourly"]
 
 weather_id = []
 
 for i in range(12):
-    weather_id.append(next_48[i]["weather"][0]["id"])
+    weather_id.append(weather_data[i]["weather"][0]["id"])
 
 
 print(weather_id)
